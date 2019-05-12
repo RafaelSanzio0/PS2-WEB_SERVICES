@@ -1,4 +1,4 @@
-package dao;
+package classes;
 
 public class Jogo {
 
@@ -17,7 +17,6 @@ public class Jogo {
         this.nome_time_B = nome_time_B;
         this.gols_time_A = gols_time_A;
         this.gols_time_B = gols_time_B;
-
     }
 
     public long getId() {

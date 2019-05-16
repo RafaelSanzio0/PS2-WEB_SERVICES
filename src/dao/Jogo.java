@@ -1,4 +1,4 @@
-package classes;
+package dao;
 
 public class Jogo {
 

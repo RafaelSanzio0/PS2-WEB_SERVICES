@@ -11,7 +11,7 @@ public class Servidor extends Application<Configuration>{
     @Override
     public void run (Configuration configuration, Environment environment) throws Exception{
         JogoDAO dAO = new JogoDAO();
-        environment.jersey().register(new JogoResource(dao));
+        environment.jersey().register(new JogoResource(dAO));
     }
     
     public static void main(String args[]) throws Exception{

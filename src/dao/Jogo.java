@@ -2,7 +2,7 @@ package dao;
 
 public class Jogo {
 
-    private long id;
+    private int id;
     private String nome_time_A;
     private String nome_time_B;
     private int gols_time_A;
@@ -11,7 +11,7 @@ public class Jogo {
     public Jogo() {
     }
 
-    public Jogo(long id, String nome_time_A, String nome_time_B, int gols_time_A, int gols_time_B) {
+    public Jogo(int id, String nome_time_A, String nome_time_B, int gols_time_A, int gols_time_B) {
         this.id = id;
         this.nome_time_A = nome_time_A;
         this.nome_time_B = nome_time_B;
@@ -19,11 +19,11 @@ public class Jogo {
         this.gols_time_B = gols_time_B;
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -57,15 +57,5 @@ public class Jogo {
 
     public void setGols_time_B(int gols_time_B) {
         this.gols_time_B = gols_time_B;
-    }
-
-    @Override
-    public String toString() {
-        return "Jogo: "
-                + this.nome_time_A + " - "
-                + this.gols_time_A + " ("
-                + this.nome_time_B + ","
-                + this.gols_time_B + ","
-                + this.getId() + ")";
     }
 }

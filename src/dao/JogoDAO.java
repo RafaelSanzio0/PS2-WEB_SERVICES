@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.SQLDataException;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -16,16 +15,15 @@ public class JogoDAO {
     private PreparedStatement stmcU;
     private PreparedStatement stmcD;
 
-    @SuppressWarnings("CallToPrintStackTrace") // ?
     public JogoDAO() {
         try {
             String url = "jdbc:derby://localhost:1527/jogo";
             String usuario = "root";
-            String senha = "";
+            String senha = "root";
             Class.forName("org.apache.derby.jdbc.ClientDriver");
             Connection connection = DriverManager.getConnection(url, usuario, senha);
             
-            String sqlC = "INSERT INTO jogo(nome_time_A, nome_time_B, gols_time_A, gols_time_B) VALUES (????)";
+            String sqlC = "INSERT INTO jogo(nome_time_A, nome_time_B, gols_time_A, gols_time_B) VALUES (?,?,?,?)";
             String sqlR = "SELECT * FROM jogo";
             String sqlU = "UPDATE jogo SET nome_time_A=?, nome_time_B=?,gols_time_A=?,gols_time_B=? WHERE id =?";
             String sqlD = "DELETE FROM jogo WHERE id=?";
@@ -40,7 +38,6 @@ public class JogoDAO {
         }
     }
 
-    @SuppressWarnings("CallToPrintSTack")
     public List<Jogo> lerTodos() {
         try {
             ResultSet resultSet = this.stmcR.executeQuery();
@@ -63,13 +60,12 @@ public class JogoDAO {
         return null;
     }
     
-    @SuppressWarnings("CallToPrintSTack")
     public Jogo criar(Jogo jogo){
         try{
             this.stmtC.setString(1, jogo.getNome_time_A());
             this.stmtC.setString(2, jogo.getNome_time_B());
             this.stmtC.setInt(3, jogo.getGols_time_A());
-            this.stmtC.setInt(4, jogo.getGols_time_A());
+            this.stmtC.setInt(4, jogo.getGols_time_B());
             this.stmtC.executeUpdate();
             
             ResultSet resultSet = this.stmtC.getGeneratedKeys();
@@ -85,13 +81,15 @@ public class JogoDAO {
         return null;
     }
     
-    @SuppressWarnings("CallToPrintStackTrace")
-    public boolean atualzar(Jogo jogo){
+    public boolean atualizar(Jogo jogo){
         try{
             this.stmcU.setString(1, jogo.getNome_time_A());
             this.stmcU.setString(2, jogo.getNome_time_B());
             this.stmcU.setInt(3, jogo.getGols_time_A());
             this.stmcU.setInt(4, jogo.getGols_time_B());
+            this.stmcU.setInt(5,jogo.getId());
+            return this.stmcU.executeUpdate() > 0;
+
 
         }catch(SQLException exception){
             exception.printStackTrace();
@@ -99,11 +97,9 @@ public class JogoDAO {
         return false;
     }
     
-    
-    @SuppressWarnings("CallToPrintStackTrace")
-    public boolean apagar(Jogo jogo) {
+    public boolean apagar(int id) {
         try{
-            this.stmcD.setInt(1, (int) jogo.getId());
+            this.stmcD.setInt(1,id);
             return this.stmcD.executeUpdate() > 0;
         }catch(SQLException e) {
             e.printStackTrace();

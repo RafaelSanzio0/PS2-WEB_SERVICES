@@ -2,8 +2,6 @@ package ws;
 
 import dao.Cidade;
 import dao.CidadeDAO;
-import dao.Jogo;
-import dao.JogoDAO;
 import io.dropwizard.jersey.params.IntParam;
 import java.util.List;
 import javax.ws.rs.DELETE;
@@ -22,9 +20,10 @@ import javax.ws.rs.core.Response;
 public class CidadeResource {
     private CidadeDAO dao;
     
-    public CidadeResource(CidadeDAO dao){
+    public CidadeResource(CidadeDAO dao) {
         this.dao = dao;
     }
+    
     @GET
     public List<Cidade> get() {
         return dao.lerTodos();
@@ -35,7 +34,7 @@ public class CidadeResource {
         return dao.criar(cidade);
     }
     
-     @PUT
+    @PUT
     @Path("{id}")
     public Response update(@PathParam("id") IntParam id, Cidade cidade) {
         cidade.setId(id.get());
@@ -46,7 +45,7 @@ public class CidadeResource {
         throw new WebApplicationException(Response.Status.NOT_FOUND);
     }
     
-   @DELETE
+    @DELETE
     @Path("{id}")
     public Response delete(@PathParam("id") IntParam id) {
         if (dao.apagar(id.get())) {

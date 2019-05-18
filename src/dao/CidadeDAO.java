@@ -18,21 +18,21 @@ public class CidadeDAO {
     
     public CidadeDAO() {
         try {
-            String url = "jdbc:derby://localhost:1527/Cidades;";
+            String url = "jdbc:derby://localhost:1527/jogo;";
      
             String usuario = "root";
             String senha = "root";
             Class.forName("org.apache.derby.jdbc.ClientDriver");
             Connection conn = DriverManager.getConnection(url, usuario, senha);
             
-            String sqlC = "INSERT INTO cidades(id, nome, estado, pais, populacao) VALUES(?,?,?,?,?)";
+            String sqlC = "INSERT INTO cidades(nome, estado, pais, populacao) VALUES(?,?,?,?)";
             String sqlR = "SELECT * FROM cidades";
-            String sqlU = "UPDATE cidades SET id=?, nome=?, estado=? pais id=?, populacao=?";
-            String sqlD = "DELETE cidades WHERE id=?";
+            String sqlU = "UPDATE cidades SET nome=?, estado=?, pais=?, populacao=? WHERE id=? ";
+            String sqlD = "DELETE FROM cidades WHERE id=?";
             
             // O segundo parametro indica que iremos precisar obter o id
             // gerado automaticamente pelo banco
-            this.stmtC = conn.prepareStatement(sqlC,Statement.RETURN_GENERATED_KEYS);
+            this.stmtC = conn.prepareStatement(sqlC, Statement.RETURN_GENERATED_KEYS);
             this.stmtR = conn.prepareStatement(sqlR);
             this.stmtU = conn.prepareStatement(sqlU);
             this.stmtD = conn.prepareStatement(sqlD);
@@ -66,11 +66,10 @@ public class CidadeDAO {
         
 public Cidade criar(Cidade c) {
         try{
-            this.stmtC.setInt(1, c.getId());
-            this.stmtC.setString(2, c.getNome());
-            this.stmtC.setString(3, c.getEstado());
-            this.stmtC.setString(4, c.getPais());
-            this.stmtC.setDouble(5,c.getPopulacao());
+            this.stmtC.setString(1, c.getNome());
+            this.stmtC.setString(2, c.getEstado());
+            this.stmtC.setString(3, c.getPais());
+            this.stmtC.setDouble(4,c.getPopulacao());
             
             this.stmtC.executeUpdate();
             ResultSet rs = this.stmtC.getGeneratedKeys();
@@ -87,11 +86,12 @@ public Cidade criar(Cidade c) {
    
     public boolean atualizar(Cidade c) {
         try{
-            this.stmtU.setInt(1, c.getId());
-            this.stmtU.setString(2, c.getNome());
-            this.stmtU.setString(3, c.getEstado());
-            this.stmtU.setString(4, c.getPais());
-            this.stmtU.setDouble(5, c.getPopulacao());
+            this.stmtU.setString(1, c.getNome());
+            this.stmtU.setString(2, c.getEstado());
+            this.stmtU.setString(3, c.getPais());
+            this.stmtU.setDouble(4, c.getPopulacao());
+            this.stmtU.setInt(5, c.getId());
+
             
             return this.stmtU.executeUpdate() > 0;
         }catch(SQLException e) {
@@ -100,7 +100,6 @@ public Cidade criar(Cidade c) {
         
         return false;
     }
-    @SuppressWarnings("CallToPrintStackTrace")
     public boolean apagar(int id) {
         try{
             this.stmtD.setInt(1, id);

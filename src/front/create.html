@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Jogo (create)</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/site/sakura.css">
+</head>
+
+<body>
+  <p><a href="/">&lt; Voltar para página inicial</a></p>
+  <h1>Novo Jogo</h1>
+  <table>
+    <tr>
+      <td>Nome do time A:</td>
+      <td><input type="text" id="txtNomeA"></td>
+    </tr>
+    <tr>
+      <td>Nome do time B:</td>
+      <td><input type="text" id="txtNomeB"></td>
+    </tr>
+    <tr>
+      <td>Gols do time A:</td>
+      <td><input type="text" id="txtGolsA"></td>
+    </tr>
+    <tr>
+      <td>Gols do time B:</td>
+      <td><input type="text" id="txtGolsB"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><input type="button" onclick="criarJogo()" value="Criar"></td>
+    </tr>
+  </table>
+  <p style="font-weight:bold" id="mensagem"></p>
+  <script>
+    const textoNomeA = document.querySelector('#txtNomeA');
+    const textoNomeB = document.querySelector('#txtNomeB');
+    const textoGolsA = document.querySelector('#txtGolsA');
+    const textoGolsB = document.querySelector('#txtGolsB');
+    const paragrafoMensagem = document.querySelector('#mensagem');
+
+    function mostrarMensagem(jogoCadastrado) {
+      textoNomeA.value = '';
+      textoNomeB.value = '';
+      textoGolsA.value = '';
+      textoGolsB.value = '';
+      paragrafoMensagem.innerHTML = 'Jogo criado com id ' + jogoCadastrado.id;
+    }
+    async function criarJogo() {
+      const URL = `/api/jogos`;
+      const dadosJogo = {
+        'nome_time_A': textoNomeA.value,
+        'nome_time_B': textoNomeB.value,
+        'gols_time_A': textoGolsA.value,
+        'gols_time_B': textoGolsB.value
+      };
+      const postRequest = {
+        method: 'POST',
+        body: JSON.stringify(dadosJogo),
+        headers: {
+          'Content-type': 'application/json;charset=UTF-8'
+        }
+      };
+      try {
+        fetch(URL, postRequest).then(resposta => resposta.json()).then(jsonResponse => mostrarMensagem(jsonResponse));
+      } catch (e) {
+        paragrafoMensagem.innerHTML = e;
+      }
+    }
+  </script>
+</body>
+</html>

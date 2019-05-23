@@ -4,39 +4,42 @@
 <head>
   <title>Jogos (update)</title>
   <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
 
 <body>
-  <p><a href="/">&lt; Voltar para página inicial</a></p>
+    <h3><p><a href="/">&lt; Voltar para página inicial</a></h3</p>
   <h1>Atualizar Jogos</h1>
   <table>
     <tr>
     </tr>
     <td>ID:</td>
-    <td id="idjogo"></td>
+    <td id="idJogo"></td>
     <tr>
       <td>Nome Time A:</td>
-      <td><input type="text" id="txtNomeA"></td>
+      <td><input type="text" id="txtNomeA" class="form-control"></td>
     </tr>
     <tr>
       <td>Nome Time B:</td>
-      <td><input type="text" id="txtNomeB"></td>
+      <td><input type="text" id="txtNomeB" class="form-control"></td>
     </tr>
     <tr>
       <td>Gols time A</td>
-      <td><input type="text" id="txtGolsA"></td>
+      <td><input type="text" id="txtGolsA" class="form-control"></td>
     </tr>
     <tr>
       <td>Gols time B</td>
-      <td><input type="text" id="txtGolsB"></td>
+      <td><input type="text" id="txtGolsB" class="form-control"></td>
     </tr>
     <tr>
       <td></td>
-      <td><input type="button" onclick="atualizarJogo()" value="Salvar"></td>
+      <td><input type="button" class="btn btn-success" onclick="atualizarJogo()" value="Salvar"></td>
     </tr>
   </table>
   <p style="font-weight:bold" id="mensagem"></p>
-  <table>
+  <table class="table table-striped">
       <th>ID</th>
       <th>Nome do time A</th>
       <th>Nome do time B</th>
@@ -60,7 +63,7 @@
       textoNomeA.value = '';
       textoNomeB.value = '';
       textoGolsA.value = '';
-      textoGolsbB.value = '';
+      textoGolsB.value = '';
       listarTodosJogos();
     }
 

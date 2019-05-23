@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>src/front/update.html</url>
+            <bookmark id="1">
+                <name/>
+                <line>53</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/rafae/OneDrive/Faculdade/Sistema%20de%20informação/3%20SEMESTRE/Programação%20II/PS2-WEB_SERVICES/src/dao/Cidade.java</file>
-            <file>file:/C:/Users/rafae/OneDrive/Faculdade/Sistema%20de%20informação/3%20SEMESTRE/Programação%20II/PS2-WEB_SERVICES/src/dao/CidadeDAO.java</file>
-            <file>file:/C:/Users/rafae/OneDrive/Faculdade/Sistema%20de%20informação/3%20SEMESTRE/Programação%20II/PS2-WEB_SERVICES/src/dao/JogoDAO.java</file>
-            <file>file:/C:/Users/rafae/OneDrive/Faculdade/Sistema%20de%20informação/3%20SEMESTRE/Programação%20II/PS2-WEB_SERVICES/src/ws/CidadeResource.java</file>
-            <file>file:/C:/Users/rafae/OneDrive/Faculdade/Sistema%20de%20informação/3%20SEMESTRE/Programação%20II/PS2-WEB_SERVICES/src/ws/Servidor.java</file>
-            <file>file:/C:/Users/rafae/OneDrive/Faculdade/Sistema%20de%20informação/3%20SEMESTRE/Programação%20II/PS2-WEB_SERVICES/src/ws/JogoResource.java</file>
+            <file>file:/C:/Users/rafae/OneDrive/Faculdade/Sistema%20de%20informação/3%20SEMESTRE/Programação%20II/PS2-WEB_SERVICES/src/front/delete.html</file>
         </group>
     </open-files>
 </project-private>

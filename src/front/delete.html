@@ -4,11 +4,13 @@
 <head>
   <title>Jogos (delete)</title>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="/site/sakura.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
 
 <body>
-  <p><a href="/">&lt; Voltar para página inicial</a></p>
+  <h3><a href="/">&lt; Voltar para página inicial</a></h3>
   <h1>Apagar jogo</h1>
   <table>
     <tr>
@@ -16,7 +18,7 @@
     <td>ID:</td>
     <td id="idjogo"></td>
     <tr>
-      <td>Nome do time A:</td>
+      <td>Nomedddd do time A:</td>
       <td id="nomeTimeA"></td>
     </tr>
     <tr>
@@ -33,11 +35,11 @@
     </tr>
     <tr>
       <td></td>
-      <td><input type="button" onclick="apagarJogo()" value="Apagar"></td>
+      <td><input type="button" class="btn btn-danger" onclick="apagarJogo()" value="Apagar"></td>
     </tr>
   </table>
   <p style="font-weight:bold" id="mensagem"></p>
-  <table>
+  <table class="table table-striped">
     <tr>
      <th>ID</th>
       <th>Nome do time A</th>

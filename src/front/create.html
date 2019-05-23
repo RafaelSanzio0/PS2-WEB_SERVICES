@@ -4,34 +4,39 @@
 <head>
   <title>Jogo (create)</title>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="/site/sakura.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
 </head>
 
 <body>
-  <p><a href="/">&lt; Voltar para página inicial</a></p>
-  <h1>Novo Jogo</h1>
-  <table>
-    <tr>
-      <td>Nome do time A:</td>
-      <td><input type="text" id="txtNomeA"></td>
-    </tr>
-    <tr>
-      <td>Nome do time B:</td>
-      <td><input type="text" id="txtNomeB"></td>
-    </tr>
-    <tr>
-      <td>Gols do time A:</td>
-      <td><input type="text" id="txtGolsA"></td>
-    </tr>
-    <tr>
-      <td>Gols do time B:</td>
-      <td><input type="text" id="txtGolsB"></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><input type="button" onclick="criarJogo()" value="Criar"></td>
-    </tr>
-  </table>
+  <h3><a href="/">&lt; Voltar para página inicial</a></h3>
+    <h1>Novo jogo</h1>
+    <form class="form-inline">
+    <table>
+        <tr>
+          <td>Nome do time A:</td>
+          <td><input type="text" id="txtNomeA" class="form-control"></td>
+        </tr>
+      <tr>
+        <td>Nome do time B:</td>
+        <td><input type="text" id="txtNomeB" class="form-control"></td>
+      </tr>
+      <tr>
+        <td>Gols do time A:</td>
+        <td><input type="text" id="txtGolsA" class="form-control"></td>
+      </tr>
+      <tr>
+        <td>Gols do time B:</td>
+        <td><input type="text" id="txtGolsB" class="form-control"></td>
+      </tr>
+      <tr>
+          <td></td>
+        <td><input type="button" class="btn btn-primary" onclick="criarJogo()" value="Criar"></td>
+      </tr>
+    </table>
+    </form>
   <p style="font-weight:bold" id="mensagem"></p>
   <script>
     const textoNomeA = document.querySelector('#txtNomeA');

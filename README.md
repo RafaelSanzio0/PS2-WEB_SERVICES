@@ -1,0 +1,21 @@
+## BANCO DE DADOS
+
+### CREATE TABLE cidades (
+    id BIGINT NOT NULL  GENERATED ALWAYS AS IDENTITY, 
+    nome VARCHAR(45) NOT NULL,
+    estado VARCHAR(45) NOT NULL,
+    pais VARCHAR(45) NOT NULL,
+    populacao BIGINT NOT NULL,
+    PRIMARY KEY (id)
+ );
+ 
+ ### CREATE TABLE jogo (
+
+    id BIGINT NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
+    nome_time_A VARCHAR(255) NOT NULL,
+    nome_time_B VARCHAR (255) NOT NULL,
+    gols_time_A INT NOT NULL,
+    gols_time_B INT NOT NULL,
+    PRIMARY KEY (id)
+
+);
